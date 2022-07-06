@@ -2,12 +2,13 @@ const mongoose = require("mongoose")
 
 
 const Schema = mongoose.Schema
+
 const itemSchema = new Schema({
     itemName: String,
     itemPrice: Number,
-    iitemCategory: String
+    itemCategory: String
 })
 
-const Item = mongoose.model( "Item" , itemSchema )
+const Item = mongoose.model( "item" , itemSchema )
 
 module.exports = Item

@@ -1,16 +1,17 @@
 const express = require ('express')
 const mongoose = require ('mongoose')
-const itemsApi = require("./server/routs/item.api")
 require('dotenv').config()
+const itemApi = require('./server/routs/item.api')
 
-mongoose.connect(process.env.MONGOBD_URI)
-    .then(() => console.log("connected to Database "))
 
 const app = express()
-const PORT = 3001 
+const PORT = 3001
 
+mongoose.connect(process.env.MONGODB_URI) 
+    .then(() => console.log("connected to dataBase"))
+ 
 app.use(express.json())
-app.use("Expenses" , itemsApi)
+app.use("/Expenses" , itemApi)
 
 app.listen(PORT , function () {
     console.log("up and running on Port " + PORT);
